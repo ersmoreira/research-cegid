@@ -10,12 +10,11 @@
       - [Steps:](#steps)
   - [Essential Docker Compose Commands](#essential-docker-compose-commands)
   - [Clean Up and Reset](#clean-up-and-reset)
-    - [1. **Remove all stopped containers, networks, volumes:**](#1-remove-all-stopped-containers-networks-volumes)
-    - [2. **Clean Docker System (optional but useful for space management):**](#2-clean-docker-system-optional-but-useful-for-space-management)
-  - [docker-compose.yml Configuration](#docker-composeyml-configuration)
-    - [Example:](#example)
-  - [Basic Setup and Example](#basic-setup-and-example)
-  - [Docker Compose Template](#docker-compose-template)
+    - [Remove all stopped containers, networks, volumes:](#remove-all-stopped-containers-networks-volumes)
+    - [Clean Docker System (optional but useful for space management):](#clean-docker-system-optional-but-useful-for-space-management)
+  - [Configuration of docker-compose.yml](#configuration-of-docker-composeyml)
+  - [Basic Setup](#basic-setup)
+  - [Example](#example)
 
 
 
@@ -63,9 +62,10 @@ You don't need to install it separately.
 
 ## Clean Up and Reset
 
-Docker Compose leaves behind some resources like **volumes** and **networks** after containers are stopped or removed. Here’s how to clean and reset your Docker environment:
+Docker Compose leaves behind some resources like **volumes** and **networks** after containers are stopped or removed.  
+Here’s how to clean and reset your Docker environment:
 
-### 1. **Remove all stopped containers, networks, volumes:**
+### Remove all stopped containers, networks, volumes:
 
 ```bash
 docker-compose down --volumes --remove-orphans
@@ -74,7 +74,7 @@ docker-compose down --volumes --remove-orphans
 - `--volumes`: Removes all volumes created by services.
 - `--remove-orphans`: Removes any extra containers that are not part of the Compose file.
 
-### 2. **Clean Docker System (optional but useful for space management):**
+### Clean Docker System (optional but useful for space management):
 
 ```bash
 docker system prune -a --volumes
@@ -88,60 +88,29 @@ This command cleans up:
 
 > **Warning**: The `-a` flag will remove all images, even those not associated with running containers.
 
----
 
-## docker-compose.yml Configuration
+## Configuration of docker-compose.yml
 
 The heart of Docker Compose is the `docker-compose.yml` file, where you define the containers (services), networks, and volumes for your application.
 
-### Example:
-
-```yaml
-version: '3.8'  # Specify the Compose file version
-
-services:
-  app:
-    image: node:14  # Image of a Node.js app
-    ports:
-      - "3000:3000"  # Mapping local port 3000 to container's port 3000
-    volumes:
-      - ./app:/usr/src/app  # Mount local app directory into container
-    environment:
-      NODE_ENV: development  # Environment variable
-    networks:
-      - app-network  # Connecting to a network
-
-  redis:
-    image: redis:alpine  # Redis image from Docker Hub
-    ports:
-      - "6379:6379"  # Mapping Redis default port
-    networks:
-      - app-network  # Same network as the app
-
-networks:
-  app-network:  # Defining a custom network
-```
-
----
-
-## Basic Setup and Example
+## Basic Setup
 
 Let’s create a basic **Node.js** app with **Redis** using Docker Compose on Windows.
 
-1. **Create a project directory:**
+- Create a project directory:
 
 ```bash
 mkdir my-docker-app
 cd my-docker-app
 ```
 
-2. **Create a directory for the app:**
+- Create a directory for the app:
 
 ```bash
 mkdir app
 ```
 
-3. **Create the `docker-compose.yml` file:**
+- Create the `docker-compose.yml` file:
 
 ```yaml
 version: '3.8'
@@ -168,7 +137,26 @@ networks:
   app-network:
 ```
 
-4. **Add a basic Node.js application** in the `app` folder:
+**Explanation**
+
+- version: Defines the version of Docker Compose.  
+  Version 3.8 is recommended for compatibility with the latest Docker versions.
+- services: This section defines the services that Docker Compose will manage.  
+  In this case, we have two services:
+  - app: The Node.js application service.
+  - redis: The Redis service.
+- image: The Docker image that will be used to create the container.  
+  In this case, we're using the official Node.js - image (version 14) and a lightweight version of Redis (alpine).
+- volumes: Defines volumes that mount local directories onto the container's file system.  
+  In the example, the ./app directory (on the host machine) is mounted to /usr/src/app (inside the container).
+- ports: Maps the container’s ports to the host machine’s ports, allowing access to the service through the maped ports.  
+  For example, the Node.js app will be available on port 3000 of the host.
+- networks: Connects the services to a custom network, enabling them to communicate with each other within the network.  
+  Both Redis and Node.js are connected to the app-network.
+
+## Example
+
+- Add a basic Node.js application in the `app` folder:
 
 ```bash
 cd app
@@ -202,7 +190,7 @@ app.listen(3000, () => {
 });
 ```
 
-5. **Run the application with Docker Compose:**
+- Run the application with Docker Compose:
 
 ```bash
 docker-compose up
@@ -210,35 +198,4 @@ docker-compose up
 
 Visit `http://localhost:3000` in your browser, and you should see the visit count!
 
----
 
-## Docker Compose Template
-
-Here’s a basic Docker Compose template for quick reference:
-
-```yaml
-version: '3.8'
-
-services:
-  service_name:
-    image: image_name:tag  # e.g., node:14, redis:alpine
-    build: ./path/to/dockerfile  # Optional: if building from a Dockerfile
-    ports:
-      - "host_port:container_port"
-    volumes:
-      - ./host_dir:/container_dir
-    environment:
-      ENV_VAR_NAME: value
-    depends_on:
-      - other_service  # Optional: to start this service after another
-    networks:
-      - network_name
-    command: "start_command"  # Optional: to override the default CMD in the image
-
-networks:
-  network_name:  # Defining a custom network
-```
-
----
-
-This guide covers the basics to get started with Docker Compose on Windows. Feel free to adapt and expand on this as you work with more complex Docker environments!
