@@ -4,11 +4,11 @@
 ## Table of Contents
 - [Docker Compose](#docker-compose)
   - [Table of Contents](#table-of-contents)
-  - [What is Docker Compose?](#what-is-docker-compose)
-  - [Installing Docker Compose](#installing-docker-compose)
+  - [What?](#what)
+  - [Installing](#installing)
     - [Prerequisites:](#prerequisites)
       - [Steps:](#steps)
-  - [Essential Docker Compose Commands](#essential-docker-compose-commands)
+  - [Commands](#commands)
   - [Clean Up and Reset](#clean-up-and-reset)
     - [Remove all stopped containers, networks, volumes:](#remove-all-stopped-containers-networks-volumes)
     - [Clean Docker System (optional but useful for space management):](#clean-docker-system-optional-but-useful-for-space-management)
@@ -18,14 +18,14 @@
 
 
 
-## What is Docker Compose?
+## What?
 
 Docker Compose is a tool for defining and running multi-container Docker applications.  
 With a simple YAML configuration file (`docker-compose.yml`), you can specify all the containers, networks, and volumes needed to run your entire application stack.  
 Instead of running each Docker container manually, Docker Compose orchestrates the process.
 
 
-## Installing Docker Compose
+## Installing 
 
 ### Prerequisites:
 **Docker Desktop**:  
@@ -40,7 +40,7 @@ You don't need to install it separately.
    docker-compose --version
    ```
 
-## Essential Docker Compose Commands
+## Commands
 
 | **Command** | **Description** |
 |-------------|-----------------|
