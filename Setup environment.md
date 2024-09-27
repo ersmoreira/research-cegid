@@ -3,19 +3,37 @@
 ## Table of Contents
 - [Setup business-os environment](#setup-business-os-environment)
   - [Table of Contents](#table-of-contents)
-  - [Dependencies](#dependencies)
+  - [Pre-requisites](#pre-requisites)
+  - [Install pre-requisites](#install-pre-requisites)
   - [Verify installed packages](#verify-installed-packages)
   - [How uninstall packages](#how-uninstall-packages)
   - [Install necessary packages](#install-necessary-packages)
   - [Setup necessary virtual environments](#setup-necessary-virtual-environments)
 
 
-## Dependencies
+## Pre-requisites
 
-To run the project is necessary to have python installed with the following packages 
+- To have all the project working is necessary to have the following instaled:
+>- Python
+>- Node
+>- Docker Desktop
+
+- Python need to have the following packages 
 
 >- pdm (version 2.18.1)
 >- pipdeptree  
+
+## Install pre-requisites
+
+- **Python**
+  Could download and install from [official site](https://www.python.org/downloads/) or [microsoft windows store](https://apps.microsoft.com/detail/9pjpw5ldxlz5?hl=pt-pt&gl=PT)  
+  If need a little bit of details, could see [here](https://www.datacamp.com/pt/blog/how-to-install-python)
+- **Node**
+  Could download and install from [official site](https://nodejs.org)  
+  If need a little bit of details, could see [here](https://www.alura.com.br/artigos/como-instalar-node-js-windows-linux-macos)
+- **Docker**
+  Could download and install from [official site](https://www.docker.com/)  
+  If need a little bit of details, could see [here](https://docs.docker.com/desktop/install/windows-install/)
 
 ## Verify installed packages
 
@@ -47,6 +65,11 @@ To install execute the following commands
 >``` bash
 >pip install pipdeptree
 >```
+>
+>```bash
+>pdm config check_update false
+>```
+
 
 ## Setup necessary virtual environments
 
