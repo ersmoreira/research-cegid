@@ -10,6 +10,7 @@
     - [Tests not run](#tests-not-run)
       - [Not access error](#not-access-error)
       - [Abort on Exit](#abort-on-exit)
+  - [TO-DO](#to-do)
 
 
 ## Tests environment on docker
@@ -138,3 +139,6 @@ When occurs an exit on pipeline (ok or not), by default pipeline aborts.
   - service_healthy: Assure that the specified service has healthcheck specified and returning ok 
   - service_completed_successfully: Assure that service runs completely and end ok (exit 0)
   
+  ## TO-DO
+
+  - Remove env files from remote repository and put everything inside it on pipeline variables or in Azure Secure Files
