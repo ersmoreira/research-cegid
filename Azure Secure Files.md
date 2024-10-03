@@ -1,6 +1,18 @@
 
 # Azure Secure Files em Pipelines
 
+- [Azure Secure Files em Pipelines](#azure-secure-files-em-pipelines)
+  - [O que é o Azure Secure Files?](#o-que-é-o-azure-secure-files)
+  - [Adicionar Ficheiros ao Azure Secure Files](#adicionar-ficheiros-ao-azure-secure-files)
+    - [Passos para adicionar ficheiros:](#passos-para-adicionar-ficheiros)
+      - [Nota Importante:](#nota-importante)
+    - [Definir Permissões de Acesso ao Ficheiro](#definir-permissões-de-acesso-ao-ficheiro)
+      - [Configurar Permissões de Acesso:](#configurar-permissões-de-acesso)
+    - [Utilizar o Ficheiro nas Pipelines](#utilizar-o-ficheiro-nas-pipelines)
+      - [Usar Secure Files em Pipelines](#usar-secure-files-em-pipelines)
+    - [Utilização do Ficheiro nos Scripts](#utilização-do-ficheiro-nos-scripts)
+  - [Conclusão](#conclusão)
+
 ## O que é o Azure Secure Files?
 
 O Azure Secure Files é uma funcionalidade do Azure DevOps que permite guardar e gerir ficheiros sensíveis de forma segura, como certificados, chaves SSH ou outros ficheiros confidenciais.  
