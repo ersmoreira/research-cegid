@@ -105,4 +105,6 @@ Depois de o ficheiro ser descarregado para o agente, você pode acessá-lo nos s
 
 O **Azure Secure Files** oferece uma maneira eficiente e segura de guardar e gerir ficheiros confidenciais dentro do **Azure DevOps**.  
 Ao integrar essa funcionalidade nas pipelines, é possível utilizar ficheiros como certificados, chaves e outros artefatos de forma segura, protegendo-os contra exposição.  
-Seguindo as melhores práticas e utilizando o recurso de eliminar ficheiros quando já não é necessário,estará a ser garantida uma gestão segura desses ficheiros ao longo do ciclo de vida da aplicação.
+Seguindo as melhores práticas e utilizando o recurso de eliminar ficheiros quando já não é necessário,estará a ser garantida uma gestão segura desses ficheiros ao longo do ciclo de vida da aplicação.  
+
+[Go Back](./Index.md)

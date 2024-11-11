@@ -142,3 +142,5 @@ When occurs an exit on pipeline (ok or not), by default pipeline aborts.
   ## TO-DO
 
   - Remove env files from remote repository and put everything inside it on pipeline variables or in Azure Secure Files
+
+[Go Back](./Index.md)
